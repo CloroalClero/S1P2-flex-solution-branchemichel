@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flexbox Components - Honey</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="page__header">
+      <h1 class="page__title">Flexbox Components</h1>
+      <p class="page__subtitle">Card prodotto, barra di navigazione, articolo (mobile senza media query)</p>
+    </header>
+
+    <section class="demo">
+      <h2 class="demo__title">Card prodotto</h2>
+
+      <article class="product-card" aria-label="Product card">
+        <img class="product-card__img" src="assets/honey.jpg" alt="Honey jar and honeycomb" />
+        <div class="product-card__body">
+          <div class="product-card__row">
+            <div class="product-card__copy">
+              <h3 class="product-card__name">100% Bio Honey</h3>
+              <p class="product-card__desc">Italian, not treated</p>
+            </div>
+            <div class="product-card__price">7$/kg</div>
+          </div>
+
+          <button class="product-card__btn" type="button">Add to cart</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="demo">
+      <h2 class="demo__title">Barra di navigazione</h2>
+
+      <nav class="pill-nav" aria-label="Primary">
+        <a class="pill-nav__pill" href="#">Our Honey</a>
+        <a class="pill-nav__pill" href="#">Trace Honey</a>
+
+        <a class="pill-nav__main" href="#" aria-current="page">
+          <img class="pill-nav__icon" src="assets/logo.png" alt="" />
+          <span class="pill-nav__mainText">SHOP</span>
+        </a>
+
+        <a class="pill-nav__pill" href="#">Facilities</a>
+        <a class="pill-nav__pill" href="#">Contacts</a>
+      </nav>
+    </section>
+
+    <section class="demo">
+      <h2 class="demo__title">Articolo</h2>
+
+      <button id="toggleMobile" class="toggle-btn" type="button">
+        Toggle mobile
+      </button>
+
+      <article class="honey-article">
+        <div class="honey-article__media" aria-hidden="true">
+          <img src="assets/honey.jpg" alt="" />
+        </div>
+
+        <div class="honey-article__content">
+          <h3>Our delicious honey</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed felis massa, sagittis sit amet
+            turpis in, pharetra semper metus. Donec sit amet commodo enim. Fusce cursus in tellus ut
+            malesuada. Aenean feugiat ex arcu, eu volutpat lectus rhoncus viverra. Sed pulvinar interdum
+            velit, non tincidunt neque placerat sit amet.
+          </p>
+          <p>
+            Donec efficitur at mi quis lacinia. Mauris orci neque, lobortis ut arcu sed, ullamcorper luctus
+            diam. Duis consequat nisl eget sem bibendum, pulvinar suscipit elit gravida. Nam sollicitudin
+            enim a mauris maximus cursus.
+          </p>
+        </div>
+      </article>
+
+      <p class="note">
+        Nota: la versione “mobile” dell’articolo si ottiene senza media queries usando <code>flex-wrap: wrap-reverse</code>. Il bottone sopra forza la modalità mobile via classe.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    const btn = document.getElementById('toggleMobile');
+    const article = document.querySelector('.honey-article');
+
+    btn.addEventListener('click', () => {
+      article.classList.toggle('is-mobile');
+      btn.textContent = article.classList.contains('is-mobile') ? 'Toggle desktop' : 'Toggle mobile';
+    });
+  </script>
+</body>
+</html>
